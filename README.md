@@ -1,15 +1,67 @@
-# humidity_pro
+# AI Diagnostic Assistant
 
-A new Flutter project.
+AI-powered Flutter application designed to help technicians generate fast, accurate, and reliable diagnostics.
 
-## Getting Started
+Built with Flutter and SQLite for efficient local data storage.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## Tech Stack
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Flutter
+- Dart
+- SQLite (sqflite)
+- Supabase
+
+---
+
+## Installation
+
+### 1. Install Flutter
+
+Follow the official guide:  
+https://docs.flutter.dev/get-started/install
+
+Verify installation:
+
+```bash
+flutter doctor
+
+---
+
+
+### 2. Clone the project
+
+- git clone https://github.com/your-username/your-repository.git
+- cd your-repository
+
+
+### 3. Install dependencies
+
+- flutter pub get
+
+
+### 4. Run the project
+- flutter run
+
+- Make sure you have:
+
+- An emulator running
+or
+
+- A physical device connected
+
+
+
+## Database
+
+This project uses SQLite via the sqflite package.
+No external database configuration is required.
+
+
+--- 
+
+
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
