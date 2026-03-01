@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:humidity_pro/models/task.dart';
 import 'package:humidity_pro/services/database_service.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class HomePasge extends StatefulWidget {
+  const HomePasge({super.key});
 
   @override 
-  State<HomePage> createState() => _HomePageState(); 
+  State<HomePasge> createState() => _HomePageState(); 
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePasge> {
   final DatabaseService _databaseService = DatabaseService.instance;
 
 
