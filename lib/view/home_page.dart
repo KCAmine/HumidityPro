@@ -17,9 +17,26 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) { 
     return  Scaffold(
+     
       floatingActionButton: _addTaskButton(),
-      body:  _tasksList(),
+      body:Column(
+        children: [
+          _createDiagnosticButton(),
+          Expanded(child: _tasksList())
+        ],
+      )
+     
     );
+  }
+
+  Widget _createDiagnosticButton(){
+    return TextButton(
+  style: ButtonStyle(
+    foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+  ),
+  onPressed: () { },
+  child: Text(''),
+);
   }
 
   Widget _addTaskButton() {

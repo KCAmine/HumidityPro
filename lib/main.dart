@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:humidity_pro/view/home.dart';
 import 'package:humidity_pro/view/home_page.dart'; // L'import est crucial
 
 void main() => runApp(const MyApp());
@@ -9,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: HomePage(), // C'est ici qu'il l'appelle
+      home: Home(), // C'est ici qu'il l'appelle
     );
   }
 }

@@ -43,6 +43,10 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+/lib/services
 
-../services
-
+# SQLite
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
