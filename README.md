@@ -26,30 +26,38 @@ Verify installation:
 
 ```bash
 flutter doctor
+```
 
----
+
 
 
 ### 2. Clone the project
 
-- git clone https://github.com/your-username/your-repository.git
-- cd your-repository
+```bash
+ git clone https://github.com/your-username/your-repository.git
+ cd your-repository
+```
 
 
 ### 3. Install dependencies
 
-- flutter pub get
+
+```bash
+ flutter pub get
+ ```
 
 
 ### 4. Run the project
-- flutter run
+```bash
+ flutter run
+ ```
 
-- Make sure you have:
+Make sure you have:
 
-- An emulator running
+ An emulator running
 or
 
-- A physical device connected
+ A physical device connected
 
 
 
@@ -59,7 +67,7 @@ This project uses SQLite via the sqflite package.
 No external database configuration is required.
 
 
---- 
+
 
 
 
