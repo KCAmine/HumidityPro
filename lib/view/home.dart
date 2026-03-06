@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:humidity_pro/services/network_service.dart';
-
+import 'package:humidity_pro/view/create_case_page.dart';
+import 'package:humidity_pro/view/create_case_page.dart';
 
 class Home extends StatelessWidget {
   Home({super.key});
@@ -15,13 +16,13 @@ class Home extends StatelessWidget {
         backgroundColor: const Color(0xff131e38),
         elevation: 0,
         actions: [
-          // On place la diode et le texte dans les actions de l'AppBar
+          // place la diode et le texte dans les actions de l'app bar 
           Obx(() => Row(
                 children: [
                   Text(
                     networkController.isOnline.value ? "Online" : "Offline",
                     style: TextStyle(
-                      color: networkController.isOnline.value ? Colors.green : Colors.red,
+                      color: networkController.isOnline.value ? const Color(0xFF4CAF50) : Colors.red,
                       fontWeight: FontWeight.bold,
                       fontSize: 12,
                     ),
@@ -35,7 +36,14 @@ class Home extends StatelessWidget {
       ),
       body: Center(
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+            context,
+            MaterialPageRoute<void>(
+              builder: (context) => SecondRoute(),
+               )
+            );
+          },
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.all(20.0),
             fixedSize: const Size(290, 75),

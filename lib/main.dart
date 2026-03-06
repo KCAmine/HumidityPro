@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:humidity_pro/services/dependency_injection.dart';
 import 'package:humidity_pro/view/home.dart';
-import 'package:humidity_pro/view/home_page.dart'; // L'import est crucial
+
 
 Future<void> main() async{
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: Home(), // C'est ici qu'il l'appelle
+      home: Home(), //
     );
   }
 }
