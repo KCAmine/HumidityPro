@@ -49,7 +49,7 @@ class Home extends StatelessWidget {
             fixedSize: const Size(290, 75),
             textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             backgroundColor: const Color.fromARGB(255, 184, 218, 164),
-            foregroundColor: Colors.black,
+            foregroundColor: const Color.fromARGB(255, 0, 0, 0),
             elevation: 10,
           ),
           child: const Text("Crée un diagnostic"),
