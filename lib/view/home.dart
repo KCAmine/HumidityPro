@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:humidity_pro/services/network_service.dart';
 import 'package:humidity_pro/view/create_case_page.dart';
-import 'package:humidity_pro/view/create_case_page.dart';
+
 
 class Home extends StatelessWidget {
   Home({super.key});

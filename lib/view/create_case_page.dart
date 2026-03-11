@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:get/state_manager.dart';
 import 'package:flutter_intl_phone_field/flutter_intl_phone_field.dart';
+import 'package:humidity_pro/models/client.dart';
+import 'package:humidity_pro/services/databases_services.dart';
 
 class SecondRoute extends StatefulWidget {
   const SecondRoute({super.key});
@@ -11,8 +11,11 @@ class SecondRoute extends StatefulWidget {
 }
 
 class _SecondRouteState extends State<SecondRoute> {
-  final _formGlobalKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   final _emailRegex = "";
+  final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
+  String _phoneNumber = "";
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +32,7 @@ class _SecondRouteState extends State<SecondRoute> {
         child: Column(
           children: [
             Form(
-              key: _formGlobalKey,
+              key: _formKey,
               child: Theme(
                 // Applique le texte blanc et les bordures à tout le formulaire
                 data: Theme.of(context).copyWith(
@@ -43,6 +46,8 @@ class _SecondRouteState extends State<SecondRoute> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
+
+
                     IntlPhoneField(
                       cursorColor: Colors.white,
                       style: const TextStyle(color: Colors.white),
@@ -53,10 +58,15 @@ class _SecondRouteState extends State<SecondRoute> {
                         border: OutlineInputBorder(),
                       ),
                       initialCountryCode: 'FR',
-                      onChanged: (phone) {},
+                      onChanged: (phone) {
+                        _phoneNumber = phone.completeNumber;
+                      },
                     ),
+
+
                     const SizedBox(height: 15),
                     TextFormField(
+                      controller: _nameController,
                       cursorColor: Colors.white,
                       style: const TextStyle(color: Colors.white),
                       maxLength: 40,
@@ -71,7 +81,10 @@ class _SecondRouteState extends State<SecondRoute> {
                         return null;
                       },
                     ),
+
+
                     TextFormField(
+                      controller: _emailController,
                       cursorColor: Colors.white,
                       style: const TextStyle(color: Colors.white),
                       keyboardType: TextInputType.emailAddress,
@@ -86,14 +99,35 @@ class _SecondRouteState extends State<SecondRoute> {
                         if (!RegExp(_emailRegex).hasMatch(value)) {
                           return 'Veuillez saisir un email valide';
                         }
+                        
                         return null;
                       },
                     ),
                     const SizedBox(height: 30),
+
+
                     FilledButton(
-                      onPressed: () {
-                        _formGlobalKey.currentState!.validate();
+                      onPressed: () async {
+
+                        if  ( _formKey.currentState!.validate()){
+                          final newClient = Client(
+                            
+                            id: DateTime.now().millisecondsSinceEpoch,
+                            name: _nameController.text,
+                            phone: int.parse(_phoneNumber.replaceAll('+', '')),
+                            email : _emailController.text,
+  
+                            );
+                            
+                            await DatabaseService.instance.insertClient(newClient);
+                            final clients = await DatabaseService.instance.retrieveClients();
+                          print("Base de données mise à jour : $clients");
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text("Création du Dossier"))
+                          );
+                        }
                       },
+
                       style: FilledButton.styleFrom(
                         backgroundColor: myColor,
                         foregroundColor: const Color.fromARGB(255, 0, 0, 0),
